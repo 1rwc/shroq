@@ -231,7 +231,7 @@ function play(guild, song) {
  
  
 client.on('message', message => {
-    if (message.content === '.rhelp') {
+    if (message.content === 'shhelp') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**Instructions...**')
         .setDescription('**Type ( .r ) to play music **')

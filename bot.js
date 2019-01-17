@@ -88,7 +88,7 @@ client.on('message', async msg => {
                     .setDescription(`**الرجآء منك إختيآر رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
  
-                    .setFooter(" **Shroq. 🎵 **")
+                    .setFooter("Shroq. 🎵")
                     msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
                    
                     // eslint-disable-next-line max-depth
@@ -201,7 +201,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
         serverQueue.songs.push(song);
         console.log(serverQueue.songs);
         if (playlist) return undefined;
-        else return msg.channel.send(` **${song.title}** تم اضافه الاغنية الي القائمة!`);
+        else return msg.channel.send(` **${song.title}** 🎵 تم اضافه الاغنية الي القائمة!`);
     }
     return undefined;
 }
@@ -226,7 +226,7 @@ function play(guild, song) {
         .on('error', error => console.error(error));
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
  
-    serverQueue.textChannel.send(`بدء تشغيل : **${song.title}**`);
+    serverQueue.textChannel.send(` ``🎵 بدء تشغيل``  : ``${song.title}`` `);
 }
  
  
@@ -234,15 +234,15 @@ client.on('message', message => {
     if (message.content === 'shhelp') {
         let helpEmbed = new Discord.RichEmbed()
         .setTitle('**Instructions...**')
-        .setDescription('**Type ( .r ) to play music **')
-        .addField('play', '** Play Music 🎵 **')
-        .addField('join', ' **join Chanel ☑️**')
-        .addField('disconnect', '**Bot has Been disconneted 🔜**')
-        .addField('skip', ' **Skip ⏭**')
-        .addField('pause', '**Stopped ⏸** ')
-        .addField('resume', '**resumed ⏹ **')
-        .addField('queue', '** if you want saw the list 📄 **')
-        .addField('np', '**If you want saw the song 🎼** ')
+        .setDescription('**Type ( sh ) to play **')
+        .addField('**play**', '``Play Music 🎵``')
+        .addField('**join**', ' ``join Chanel ☑️``')
+        .addField('**disconnect**', '``Bot has Been disconneted 🔜``')
+        .addField('**skip**', ' ``Skip ⏭``')
+        .addField('**pause**', '``Stopped ⏸`` ')
+        .addField('**resume**', '``resumed ⏹``')
+        .addField('**queue**', '``if you want saw the list 📄``')
+        .addField('**np**', '``If you want saw the song 🎼`` ')
         .setFooter('')
       message.channel.send(helpEmbed);   
    }
@@ -267,7 +267,7 @@ client.on('message', message => {
   if (message.content.startsWith(adminprefix + 'setname')) {
 client.user.setUsername(argresult).then
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-return message.reply("**wait 2 hour . **");
+return message.reply("**done.**");
 } else
   if (message.content.startsWith(adminprefix + 'setavatar')) {
 client.user.setAvatar(argresult);

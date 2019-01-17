@@ -85,7 +85,7 @@ client.on('message', async msg => {
                     var videos = await youtube.searchVideos(searchString, 5);
                     let index = 0;
                     const embed1 = new Discord.RichEmbed()
-                    .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
+                    .setDescription(`**الرجآء منك إختيآر رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
  
                     .setFooter("'rwc'")
@@ -230,20 +230,20 @@ function play(guild, song) {
 }
  
  
-client.on("message", message => {
-    if (message.content === `${prefix}help`) {
-  const embed = new Discord.RichEmbed()
-      .setColor("#000000")
-      .setDescription(`
-${prefix}play ⇏ لتشغيل أغنية برآبط أو بأسم
-${prefix}skip ⇏ لتجآوز الأغنية الحآلية
-${prefix}stop ⇏ إيقآف الأغنية مؤقتا
-${prefix}resume ⇏ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-${prefix}vol ⇏ لتغيير درجة الصوت 100 - 0
-${prefix}leave⇏ لإخرآج البوت من الروم
-${prefix}np ⇏ لمعرفة الأغنية المشغلة حآليا
-${prefix}queue ⇏ لمعرفة قآئمة التشغيل
- `)
+client.on('message', message => {
+    if (message.content === '.rhelp') {
+        let helpEmbed = new Discord.RichEmbed()
+        .setTitle('**Instructions...**')
+        .setDescription('**Type ( .r ) to play music **')
+        .addField('play', '** Play Music 🎵 **')
+        .addField('join', ' **join Chanel ☑️**')
+        .addField('disconnect', '**Bot has Been disconneted 🔜**')
+        .addField('skip', ' **Skip ⏭**')
+        .addField('pause', '**Stopped ⏸** ')
+        .addField('resume', '**resumed ⏹ **')
+        .addField('queue', '** if you want saw the list 📄 **')
+        .addField('np', '**If you want saw the song 🎼** ')
+        .setFooter('')
    message.channel.sendEmbed(embed)
    
    }
@@ -263,6 +263,15 @@ client.on('message', message => {
   } else
   if (message.content.startsWith(adminprefix + 'wt')) {
   client.user.setActivity(argresult, {type:'watching'});
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+   } else 
+  if (message.content.startsWith(adminprefix + 'setname')) {
+client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+return message.reply("**wait 2 hour . **");
+} else
+  if (message.content.startsWith(adminprefix + 'setavatar')) {
+client.user.setAvatar(argresult);
       message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
   } else
   if (message.content.startsWith(adminprefix + 'ls')) {

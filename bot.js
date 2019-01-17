@@ -88,7 +88,7 @@ client.on('message', async msg => {
                     .setDescription(`**الرجآء منك إختيآر رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
  
-                    .setFooter("'rwc'")
+                    .setFooter(" **Shroq. 🎵 **")
                     msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
                    
                     // eslint-disable-next-line max-depth
@@ -244,8 +244,7 @@ client.on('message', message => {
         .addField('queue', '** if you want saw the list 📄 **')
         .addField('np', '**If you want saw the song 🎼** ')
         .setFooter('')
-   message.channel.sendEmbed(embed)
-   
+      message.channel.send(helpEmbed);   
    }
    });
  
